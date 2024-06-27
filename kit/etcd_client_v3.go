@@ -65,7 +65,7 @@ func (c *EtcdClientv3Config) Valid() error {
 	}
 
 	if c.ServicePrefix == "" {
-		c.ServicePrefix = "/bombus/services/"
+		c.ServicePrefix = "/nakama-plus/services/"
 	}
 
 	return nil
@@ -94,7 +94,7 @@ func (c *EtcdClientv3Config) Clone() *EtcdClientv3Config {
 
 func NewEtcdClientv3Config() *EtcdClientv3Config {
 	return &EtcdClientv3Config{
-		ServicePrefix: "/nakama/services/",
+		ServicePrefix: "/nakama-plus/services/",
 	}
 }
 

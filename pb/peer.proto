@@ -21,7 +21,7 @@
  
  import "google/protobuf/timestamp.proto";
  import "google/protobuf/wrappers.proto";
- import "github.com/doublemo/nakama-common/api/api.proto";
+ import "github.com/doublemo/nakama-common/rtapi/realtime.proto";
  
  option go_package = "github.com/doublemo/nakama-kit/pb";
  
@@ -39,16 +39,19 @@
 message Request {
     map<string, string> context = 1;
     oneof payload {
-        api.Request request = 2;
+        realtime.Envelope envelope = 2;
         string ping = 3;
+        string singleSocket = 4;
+        Disconnect disconnect = 5;
+        ResponseWriter responseWriter = 6;
     }
 }
 
 message ResponseWriter {
     map<string, string> context = 1;
+    repeated Recipienter recipient = 2;
     oneof payload {
-        api.Request request = 2;
-        api.ResponseWriter writer = 3;
+        realtime.Envelope envelope = 3;
         string pong = 4;
     }
 }
@@ -79,6 +82,12 @@ message Frame {
         BinaryLog binaryLog = 7;
         Status status = 8;
     }
+}
+
+message Disconnect {
+    string sessionID = 1;
+    bool ban = 2;
+    uint32 reason = 3;
 }
 
 message State {
