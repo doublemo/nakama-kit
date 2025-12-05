@@ -1,9 +1,9 @@
 module github.com/doublemo/nakama-kit
 
-go 1.24.3
+go 1.25.0
 
 require (
-	github.com/doublemo/nakama-common v1.37.2
+	github.com/doublemo/nakama-common v1.43.1
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	go.etcd.io/etcd v3.3.27+incompatible
 	go.etcd.io/etcd/client/v3 v3.5.14
@@ -11,7 +11,7 @@ require (
 	go.uber.org/zap v1.27.0
 	golang.org/x/oauth2 v0.24.0
 	google.golang.org/grpc v1.70.0
-	google.golang.org/protobuf v1.36.6
+	google.golang.org/protobuf v1.36.8
 )
 
 require (
